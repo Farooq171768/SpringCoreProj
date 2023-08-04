@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+
+<beans>
+	<bean id="triangle" class="cgg.springcore.Triangle" autowire="byName">
+		<!-- <property name="type" value="Equilaterl"/> --> <!-- It Helps in giving fully initialised pre-filled object .It is 'Setter 
+			Dependency' Injection -->
+
+		<!-- <constructor-arg value="Equilateral"/> -->    <!-- Constructor Injection -->
+		<!-- <constructor-arg type="java.lang.String" value="20"/> -->  <!-- we can use type to remove ambiguity in case of multiple same type arguments -->
+
+
+		<!-- Indexing to specify constructor arguments -->
+		<!-- <constructor-arg index="0" value="Equilateral" /> <constructor-arg 
+			index="1" value="20" /> -->
+
+
+		<!-- <property name="pointA" ref="ZeroPoint" /> -->
+
+		<!-- Name and ref can be given separately -->
+		<!-- <property name="pointA"> <ref bean="ZeroPoint" /> </property> Example 
+			for Inner Beans <property name="pointB"> </property> <property name="pointC"> 
+			</property> -->
+
+		<!-- <property name="points">
+			<list>
+				<ref bean="ZeroPoint" />
+				<ref bean="pointB" />
+				<ref bean="pointC" />
+			</list>
+		</property -->
+		
+		
+		
+
+	</bean>
+
+	<bean id="pointA" class="cgg.springcore.Point">
+		<property name="x" value="0" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="pointB" class="cgg.springcore.Point">
+		<property name="x" value="-20" />
+		<property name="y" value="0" />
+	</bean>
+	<bean id="pointC" class="cgg.springcore.Point">
+		<property name="x" value="20" />
+		<property name="y" value="0" />
+	</bean>
+
+
+	<!-- Another Technique of giving aliases -->
+	<alias name="triangle" alias="triangle-alias" />
+
+</beans>
