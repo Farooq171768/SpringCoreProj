@@ -1,6 +1,8 @@
 package cgg.springcore;
 
-import java.util.List;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
 
 public class Triangle {
 
@@ -27,7 +29,9 @@ public class Triangle {
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
-
+	//member  variable for ApplicationContext
+	private ApplicationContext context;
+	
 	public Point getPointA() {
 		return pointA;
 	}
@@ -73,7 +77,38 @@ public class Triangle {
 //		}
 		
 		
+		
 	}
+
+//	@Override
+//	public void setApplicationContext(ApplicationContext context) throws BeansException {
+//		this.context=context;
+//		
+//	}
+//
+//	@Override
+//	public void setBeanName(String beanName) {
+//		System.out.println("Bean Name is: "+beanName);
+//		
+//	}
+
+//	@Override
+//	public void afterPropertiesSet() throws Exception {
+//		System.out.println("Initializing Bean init method call for triangle");
+//		
+//	}
+//
+//@Override
+//public void destroy() throws Exception {
+//	System.out.println("Disposable bean destroy method call for Triangle");
+	
+	public void myInit() {
+		System.out.println("Init method called for Triangle");
+	}
+	public void cleanUp() {
+		System.out.println("Clean Up method is called for Triangle");
+	}
+}
 
 
 
@@ -83,4 +118,4 @@ public class Triangle {
 
 
 
-}
+
