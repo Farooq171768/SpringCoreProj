@@ -4,7 +4,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 
-public class Triangle {
+public class Triangle implements Shape {
 
 	/*
 	 * private String type; private int height;
@@ -30,7 +30,7 @@ public class Triangle {
 	private Point pointB;
 	private Point pointC;
 	//member  variable for ApplicationContext
-	private ApplicationContext context;
+	//private ApplicationContext context;
 	
 	public Point getPointA() {
 		return pointA;
@@ -67,6 +67,8 @@ public class Triangle {
 	
 
 	public void draw() {
+		
+		System.out.println("Drawing Traingle");
 		//System.out.println(getType() + " Triangle drawn of height " + getHeight());
 		System.out.println("Point A =("+getPointA().getX()+", "+getPointA().getY()+")");
 		System.out.println("Point B =("+getPointB().getX()+", "+getPointB().getY()+")");
@@ -102,12 +104,12 @@ public class Triangle {
 //public void destroy() throws Exception {
 //	System.out.println("Disposable bean destroy method call for Triangle");
 	
-	public void myInit() {
-		System.out.println("Init method called for Triangle");
-	}
-	public void cleanUp() {
-		System.out.println("Clean Up method is called for Triangle");
-	}
+//	public void myInit() {
+//		System.out.println("Init method called for Triangle");
+//	}
+//	public void cleanUp() {
+//		System.out.println("Clean Up method is called for Triangle");
+//	}
 }
 
 

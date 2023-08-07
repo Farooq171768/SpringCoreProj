@@ -18,3 +18,9 @@ public class DisplayNameBeanPostProcessor implements BeanPostProcessor {
 	}
 
 }
+
+//BeanPostProcessor is an extension point for the spring framework and how we can configure the framework
+//for your specific needs using the BeanPostProcessor
+
+//BeanFactoryPostProcessor is another extension point. This is a feature provided by SPring, when u want to 
+//execute code, Bean factoy itself is initialized. Then u can use BenFactoryProcessor to write ur code.

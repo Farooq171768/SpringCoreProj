@@ -4,7 +4,8 @@
     "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 
-<beans default-init-method="myInit" default-destroy-method="cleanUp">  
+<beans default-init-method="myInit"
+	default-destroy-method="cleanUp">
 
 
 	<bean id="triangle" class="cgg.springcore.Triangle">
@@ -55,7 +56,12 @@
 	<!-- Another Technique of giving aliases -->
 	<alias name="triangle" alias="triangle-alias" />
 
-	<bean class="cgg.springcore.DisplayNameBeanPostProcessor"/>
-		
-	
+	<!-- <bean class="cgg.springcore.DisplayNameBeanPostProcessor"/> -->
+
+	<!-- <bean class="cgg.springcore.MyBeanFactoryPostProcessor"/> -->
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations" value="propertiesconfig.properties"/> </bean> -->
+	<bean id="circle" class="cgg.springcore.Circle">
+		<property name="center" ref="pointA" />
+	</bean>
 </beans>
