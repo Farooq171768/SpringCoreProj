@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
-    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+    
+     <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        
 
 
-<beans default-init-method="myInit"
-	default-destroy-method="cleanUp">
+<!-- <beans default-init-method="myInit"
+	default-destroy-method="cleanUp"> -->
 
 
-	<bean id="triangle" class="cgg.springcore.Triangle">
+	<!-- <bean id="triangle" class="cgg.springcore.Triangle"> -->
 		<!-- <property name="type" value="Equilaterl"/> --> <!-- It Helps in giving fully initialised pre-filled object .It is 'Setter 
 			Dependency' Injection -->
 
@@ -30,38 +38,41 @@
 
 		<!-- <property name="points"> <list> <ref bean="ZeroPoint" /> <ref bean="pointB" 
 			/> <ref bean="pointC" /> </list> </property -->
-		<property name="pointA" ref="pointA" />
+		<!-- <property name="pointA" ref="pointA" />
 		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
+		<property name="pointC" ref="pointC" /> -->
+<!-- </bean> -->
 
 
-
-	</bean>
-
-
-	<bean id="pointA" class="cgg.springcore.Point">
+	 <bean id="pointA" class="cgg.springcore.Point">
+	 <qualifier value="circleRelated"/>
 		<property name="x" value="0" />
 		<property name="y" value="0" />
-	</bean>
-	<bean id="pointB" class="cgg.springcore.Point">
+	</bean> 
+	  <bean id="pointB" class="cgg.springcore.Point">
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
 	<bean id="pointC" class="cgg.springcore.Point">
 		<property name="x" value="20" />
 		<property name="y" value="0" />
-	</bean>
+	</bean>  
 
 
 	<!-- Another Technique of giving aliases -->
-	<alias name="triangle" alias="triangle-alias" />
+	<!-- <alias name="triangle" alias="triangle-alias" /> -->
 
 	<!-- <bean class="cgg.springcore.DisplayNameBeanPostProcessor"/> -->
 
 	<!-- <bean class="cgg.springcore.MyBeanFactoryPostProcessor"/> -->
 	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
 		<property name="locations" value="propertiesconfig.properties"/> </bean> -->
-	<bean id="circle" class="cgg.springcore.Circle">
-		<property name="center" ref="pointA" />
-	</bean>
+	<!-- <bean id="circle" class="cgg.springcore.Circle">
+		    
+	</bean> -->
+	<context:annotation-config/>
+	
+	<!-- <bean class="org.springframewok.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> -->
+	<context:component-scan base-package="cgg.springcore"/>
 </beans>
